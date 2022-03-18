@@ -3,7 +3,7 @@
 	Console.WriteLine("Welcome to the Grand C# Maori Test!!! Created by Tobias Neumann. \n");
 	Random rnd = new Random();
 	int score = 0;
-	int index;
+	int index = 0;
 
 	// database of maori words and english meanings
 	string[] maoriWords = { "iwi", "kai", "haere mai", "wahine", "e tu", "e noho", "whanau", "kia ora", "turituri", "morena" };
@@ -11,7 +11,7 @@
 	int[] oldIndex = { };
 	
 // actual quiz, asking questions
-foreach (string element in maoriWords)
+foreach (string word in maoriWords)
 {
 	// change text color of question back to white
 	Console.ForegroundColor = ConsoleColor.White;
@@ -39,19 +39,33 @@ foreach (string element in maoriWords)
 	}
 }
 
+Console.ForegroundColor = ConsoleColor.Green;
 
 Console.Write("Congratulations! You finished the quiz! your score was: ");
 Console.WriteLine(score);
 
+Console.ForegroundColor = ConsoleColor.White;
+
+// ensures that questions do not repeat
 int Unique()
 {
-	int[] usedNumbers = new int[10];
+	int[] usedNumbers = new int[10]; // array of used words
+	bool unique = false;
 	int rndNumber = rnd.Next(10);
-	
-		if (usedNumbers.Contains(rndNumber))
+
+	while (!unique)
+	{
+		if (!usedNumbers.Contains(rndNumber))
 		{
-		rndNumber = rnd.Next(10);
+			usedNumbers[index] = rndNumber;
+			unique = true;
+			index++;
 		}
+		else
+		{
+			rndNumber = rnd.Next(10);
+		}
+	}
 
 	return rndNumber;
 }
