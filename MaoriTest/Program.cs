@@ -4,19 +4,19 @@
 	Random rnd = new Random();
 	int score = 0;
 	int index = 0;
-	bool unique = false;
 
 // database of maori words and english meanings
 string[] maoriWords = { "iwi", "kai", "haere mai", "wahine", "e tu", "e noho", "whanau", "kia ora", "turituri", "morena" };
 	string[] english = { "tribe", "food", "come here", "woman", "stand up", "sit down", "family", "hello", "shut up", "good morning" };
 	int[] oldNumbers = new int[10]; // array of used indexes
 
+
+
 // actual quiz, asking questions
 foreach (string word in maoriWords)
 {
 	// change text color of question back to white
 	Console.ForegroundColor = ConsoleColor.White;
-	index = Unique();
 	Console.Write("What is the maori word for: ");
 	Console.WriteLine(english[index]);
 	string answer = Console.ReadLine();
@@ -38,6 +38,7 @@ foreach (string word in maoriWords)
 		Console.ForegroundColor = ConsoleColor.Red;
 		Console.WriteLine("Incorrect! \n");
 	}
+	index++;
 }
 
 Console.ForegroundColor = ConsoleColor.Green;
@@ -47,31 +48,6 @@ Console.WriteLine(score);
 
 Console.ForegroundColor = ConsoleColor.White;
 
-// ensures that questions do not repeat
-int Unique()
-{
-	int rndNumber = rnd.Next(10);
-	while (!unique)
-	{
-		unique = true;
-		rndNumber = rnd.Next(10);
-
-		foreach (int oldNum in oldNumbers)
-        {
-            if (rndNumber == oldNum)
-            {
-                unique = false;
-            }
-        }
-        if (unique)
-		{
-			oldNumbers[index] = rndNumber;
-			index++;
-			return rndNumber;
-		}
-		
-	}
-}
 
 
 
