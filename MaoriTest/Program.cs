@@ -4,12 +4,13 @@
 	Random rnd = new Random();
 	int score = 0;
 	int index = 0;
+	bool unique = false;
 
-	// database of maori words and english meanings
-	string[] maoriWords = { "iwi", "kai", "haere mai", "wahine", "e tu", "e noho", "whanau", "kia ora", "turituri", "morena" };
+// database of maori words and english meanings
+string[] maoriWords = { "iwi", "kai", "haere mai", "wahine", "e tu", "e noho", "whanau", "kia ora", "turituri", "morena" };
 	string[] english = { "tribe", "food", "come here", "woman", "stand up", "sit down", "family", "hello", "shut up", "good morning" };
-	int[] oldIndex = { };
-	
+	int[] oldNumbers = new int[10]; // array of used indexes
+
 // actual quiz, asking questions
 foreach (string word in maoriWords)
 {
@@ -49,25 +50,27 @@ Console.ForegroundColor = ConsoleColor.White;
 // ensures that questions do not repeat
 int Unique()
 {
-	int[] usedNumbers = new int[10]; // array of used words
-	bool unique = false;
 	int rndNumber = rnd.Next(10);
-
 	while (!unique)
 	{
-		if (!usedNumbers.Contains(rndNumber))
-		{
-			usedNumbers[index] = rndNumber;
-			unique = true;
-			index++;
-		}
-		else
-		{
-			rndNumber = rnd.Next(10);
-		}
-	}
+		unique = true;
+		rndNumber = rnd.Next(10);
 
-	return rndNumber;
+		foreach (int oldNum in oldNumbers)
+        {
+            if (rndNumber == oldNum)
+            {
+                unique = false;
+            }
+        }
+        if (unique)
+		{
+			oldNumbers[index] = rndNumber;
+			index++;
+			return rndNumber;
+		}
+		
+	}
 }
 
 
