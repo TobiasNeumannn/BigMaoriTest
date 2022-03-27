@@ -16,7 +16,7 @@ foreach (string word in maoriWords)
 {
 	// change text color of question to white
 	Console.ForegroundColor = ConsoleColor.White;
-	Console.Write("What is the maori word for: ");
+	Console.Write(index + 1 + " - What is the maori word for: ");
 	Console.WriteLine(english[index]); // fetches the english word from the array, corresponding to the current index
 	string answer = Console.ReadLine();
 	// a gap to look good
@@ -54,8 +54,10 @@ Console.ForegroundColor = ConsoleColor.White;
 index = 0;
 int score2 = 0; // score for just level 2
 
+// q1
+
 	Console.ForegroundColor = ConsoleColor.White;
-	Console.Write("What is the meaning of: ");
+	Console.Write("1 - What is the meaning of: ");
 	Console.WriteLine(maoriWords[index]); // fetches the maori word from the array, corresponding to the current index
 	Console.WriteLine("");
 
@@ -64,7 +66,8 @@ int score2 = 0; // score for just level 2
 		Console.WriteLine("3 - " + english[8]);
 
 	int realAnswer = 1;
-	int userAnswer = Convert.ToInt32(Console.ReadLine());
+	int userAnswer;
+	CheckNull(userAnswer);
 	Console.WriteLine(""); // gap to look good
 
 	if ((userAnswer > 0) && (userAnswer < 4)) // checks if inputted number is valid
@@ -90,8 +93,10 @@ int score2 = 0; // score for just level 2
     }
 	index++;
 
+// q2
+
 Console.ForegroundColor = ConsoleColor.White;
-Console.Write("What is the meaning of: ");
+Console.Write("2 - What is the meaning of: ");
 Console.WriteLine(maoriWords[index]); // fetches the maori word from the array, corresponding to the current index
 Console.WriteLine("");
 
@@ -99,8 +104,8 @@ Console.WriteLine("1 - " + english[7]);
 Console.WriteLine("2 - " + english[6]);
 Console.WriteLine("3 - " + english[index]);
 
-realAnswer = 1;
-userAnswer = Convert.ToInt32(Console.ReadLine());
+realAnswer = 3;
+CheckNull(userAnswer);
 Console.WriteLine(""); // gap to look good
 
 if ((userAnswer > 0) && (userAnswer < 4)) // checks if inputted number is valid
@@ -126,8 +131,10 @@ else
 }
 index++;
 
+// q3
+
 Console.ForegroundColor = ConsoleColor.White;
-Console.Write("What is the meaning of: ");
+Console.Write("3 - What is the meaning of: ");
 Console.WriteLine(maoriWords[index]); // fetches the maori word from the array, corresponding to the current index
 Console.WriteLine("");
 
@@ -135,8 +142,8 @@ Console.WriteLine("1 - " + english[4]);
 Console.WriteLine("2 - " + english[5]);
 Console.WriteLine("3 - " + english[index]);
 
-realAnswer = 1;
-userAnswer = Convert.ToInt32(Console.ReadLine());
+realAnswer = 3;
+CheckNull(userAnswer);
 Console.WriteLine(""); // gap to look good
 
 if ((userAnswer > 0) && (userAnswer < 4)) // checks if inputted number is valid
@@ -162,17 +169,19 @@ else
 }
 index++;
 
+// q4
+
 Console.ForegroundColor = ConsoleColor.White;
-Console.Write("What is the meaning of: ");
+Console.Write("4 - What is the meaning of: ");
 Console.WriteLine(maoriWords[index]); // fetches the maori word from the array, corresponding to the current index
 Console.WriteLine("");
 
-Console.WriteLine("1 - " + english[3]);
+Console.WriteLine("1 - " + english[5]);
 Console.WriteLine("2 - " + english[index]);
 Console.WriteLine("3 - " + english[2]);
 
-realAnswer = 1;
-userAnswer = Convert.ToInt32(Console.ReadLine());
+realAnswer = 2;
+CheckNull(userAnswer);
 Console.WriteLine(""); // gap to look good
 
 if ((userAnswer > 0) && (userAnswer < 4)) // checks if inputted number is valid
@@ -198,17 +207,19 @@ else
 }
 index++;
 
+// q5
+
 Console.ForegroundColor = ConsoleColor.White;
-Console.Write("What is the meaning of: ");
+Console.Write("5 - What is the meaning of: ");
 Console.WriteLine(maoriWords[index]); // fetches the maori word from the array, corresponding to the current index
 Console.WriteLine("");
 
-Console.WriteLine("1 - " + english[4]);
+Console.WriteLine("1 - " + english[6]);
 Console.WriteLine("2 - " + english[1]);
 Console.WriteLine("3 - " + english[index]);
 
-realAnswer = 1;
-userAnswer = Convert.ToInt32(Console.ReadLine());
+realAnswer = 3;
+CheckNull(userAnswer);
 Console.WriteLine(""); // gap to look good
 
 if ((userAnswer > 0) && (userAnswer < 4)) // checks if inputted number is valid
@@ -234,8 +245,10 @@ else
 }
 index++;
 
+// q6
+
 Console.ForegroundColor = ConsoleColor.White;
-Console.Write("What is the meaning of: ");
+Console.Write("6 - What is the meaning of: ");
 Console.WriteLine(maoriWords[index]); // fetches the maori word from the array, corresponding to the current index
 Console.WriteLine("");
 
@@ -244,7 +257,7 @@ Console.WriteLine("2 - " + english[6]);
 Console.WriteLine("3 - " + english[3]);
 
 realAnswer = 1;
-userAnswer = Convert.ToInt32(Console.ReadLine());
+CheckNull(userAnswer);
 Console.WriteLine(""); // gap to look good
 
 if ((userAnswer > 0) && (userAnswer < 4)) // checks if inputted number is valid
@@ -270,8 +283,10 @@ else
 }
 index++;
 
+// q7
+
 Console.ForegroundColor = ConsoleColor.White;
-Console.Write("What is the meaning of: ");
+Console.Write("7 - What is the meaning of: ");
 Console.WriteLine(maoriWords[index]); // fetches the maori word from the array, corresponding to the current index
 Console.WriteLine("");
 
@@ -279,8 +294,8 @@ Console.WriteLine("1 - " + english[5]);
 Console.WriteLine("2 - " + english[7]);
 Console.WriteLine("3 - " + english[index]);
 
-realAnswer = 1;
-userAnswer = Convert.ToInt32(Console.ReadLine());
+realAnswer = 3;
+CheckNull(userAnswer);
 Console.WriteLine(""); // gap to look good
 
 if ((userAnswer > 0) && (userAnswer < 4)) // checks if inputted number is valid
@@ -306,8 +321,10 @@ else
 }
 index++;
 
+// q8
+
 Console.ForegroundColor = ConsoleColor.White;
-Console.Write("What is the meaning of: ");
+Console.Write("8 - What is the meaning of: ");
 Console.WriteLine(maoriWords[index]); // fetches the maori word from the array, corresponding to the current index
 Console.WriteLine("");
 
@@ -316,7 +333,7 @@ Console.WriteLine("2 - " + english[4]);
 Console.WriteLine("3 - " + english[8]);
 
 realAnswer = 1;
-userAnswer = Convert.ToInt32(Console.ReadLine());
+CheckNull(userAnswer);
 Console.WriteLine(""); // gap to look good
 
 if ((userAnswer > 0) && (userAnswer < 4)) // checks if inputted number is valid
@@ -342,8 +359,10 @@ else
 }
 index++;
 
+// q9
+
 Console.ForegroundColor = ConsoleColor.White;
-Console.Write("What is the meaning of: ");
+Console.Write("9 - What is the meaning of: ");
 Console.WriteLine(maoriWords[index]); // fetches the maori word from the array, corresponding to the current index
 Console.WriteLine("");
 
@@ -351,8 +370,8 @@ Console.WriteLine("1 - " + english[2]);
 Console.WriteLine("2 - " + english[index]);
 Console.WriteLine("3 - " + english[7]);
 
-realAnswer = 1;
-userAnswer = Convert.ToInt32(Console.ReadLine());
+realAnswer = 2;
+CheckNull(userAnswer);
 Console.WriteLine(""); // gap to look good
 
 if ((userAnswer > 0) && (userAnswer < 4)) // checks if inputted number is valid
@@ -378,8 +397,10 @@ else
 }
 index++;
 
+// q10
+
 Console.ForegroundColor = ConsoleColor.White;
-Console.Write("What is the meaning of: ");
+Console.Write("10 - What is the meaning of: ");
 Console.WriteLine(maoriWords[index]); // fetches the maori word from the array, corresponding to the current index
 Console.WriteLine("");
 
@@ -388,7 +409,7 @@ Console.WriteLine("2 - " + english[10]);
 Console.WriteLine("3 - " + english[5]);
 
 realAnswer = 1;
-userAnswer = Convert.ToInt32(Console.ReadLine());
+CheckNull(userAnswer);
 Console.WriteLine(""); // gap to look good
 
 if ((userAnswer > 0) && (userAnswer < 4)) // checks if inputted number is valid
@@ -418,6 +439,25 @@ Console.ForegroundColor = ConsoleColor.Green;
 Console.Write("Congratulations! You finished level 2! your score for level 2 was " + score2 + "/10 and your total score is " + score + "/20. \n");
 Console.ForegroundColor = ConsoleColor.White;
 
+public int CheckNull()
+{
+	while (true)
+	{
+		userAnswer = Console.ReadLine();
+		Console.WriteLine(x.GetType());
+
+		if (userAnswer.Length == 0)
+		{
+			Console.WriteLine("Invalid Input. \n");
+		}
+		else
+		{
+			break;
+		}
+	}
+	Console.WriteLine("Valid input. \n");
+	int w = Int32.Parse(x);
+}
 
 
 
