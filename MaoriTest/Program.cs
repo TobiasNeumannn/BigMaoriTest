@@ -1,4 +1,15 @@
-﻿	Console.ForegroundColor = ConsoleColor.Blue;
+﻿/*
+This program is a Maori Vocabulary Test in two stages.
+The maoriWords array contains 10 Maori words.
+The english array contains 10 English words, that correspond to the maori word in the same place in the other array.
+Level 1 of the test in contained in a foreach loop that repeats for every word in the maoriWords array (10 times).
+Inside the loop, the code will prompt the user to enter the Maori word for the first English word in the english array.
+The word in the english array is represented by index1, an integer that starts as 0, and increases by one at the end of the loop.
+
+
+*/
+
+	Console.ForegroundColor = ConsoleColor.Blue;
 	Console.WriteLine("Welcome to the Grand C# Maori Test!!! Created by Tobias Neumann. \n");
 	Console.WriteLine("Level 1");
 	Console.WriteLine("-------");
@@ -67,23 +78,6 @@ Console.ForegroundColor = ConsoleColor.Green;
 Console.Write("Congratulations! You finished level 2! your score for level 2 was " + score2 + "/10 and your total score is " + score + "/20. \n");
 Console.ForegroundColor = ConsoleColor.White;
 
-int CheckNull() // method to fix an error involving null ints
-{
-	while (true)
-	{
-		userAnswer = Console.ReadLine(); // reads the answer (userAnswer is currently a string, so it can be null)
-		if (userAnswer.Length == 0) // if the answer is null, user can try again (loop restarts)
-		{
-			Console.WriteLine("Invalid Input. Try again. \n");
-		}
-		else
-		{
-			break; // if answer isn't null, leaves the while loop
-		}
-	}
-	return Int32.Parse(userAnswer); // userAnswer is converted to an int and returned
-}
-
 void Run(int index, int x, int y, int realAnswer) // one question - index is the place of the word in the array, x and y are numbers chosen randomly, and realAnswer is the place of the real answer
 {
 
@@ -137,9 +131,19 @@ void Run(int index, int x, int y, int realAnswer) // one question - index is the
 	index++;
 }
 
-
-
-
-
-
-
+int CheckNull() // method to fix an error involving null ints
+{
+	while (true)
+	{
+		userAnswer = Console.ReadLine(); // reads the answer (userAnswer is currently a string, so it can be null)
+		if (userAnswer.Length == 0) // if the answer is null, user can try again (loop restarts)
+		{
+			Console.WriteLine("Invalid Input. Try again. \n");
+		}
+		else
+		{
+			break; // if answer isn't null, leaves the while loop
+		}
+	}
+	return Int32.Parse(userAnswer); // userAnswer is converted to an int and returned
+}
