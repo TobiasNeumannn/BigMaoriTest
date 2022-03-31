@@ -29,21 +29,19 @@ foreach (string word in maoriWords)
 	Console.Write(index1 + 1 + " - What is the maori word for: ");
 	Console.WriteLine(english[index1]); // fetches the english word from the array, corresponding to the current index
 	string answer = Console.ReadLine();
-	// a gap to look good
-	Console.WriteLine();
 
 	//checks if answer is correct
 	if ((answer.ToLower()) == maoriWords[index1]) // answer.ToLower() coverts the answer to lowercase so if user inputs capitals in their answer ("mAoRiWoRd") program still reads it as correct
 	{
 		// change text color
 		Console.ForegroundColor = ConsoleColor.Green;
-		Console.WriteLine("Correct! \n");
+		Console.WriteLine("\nCorrect! \n");
 		score++;
 	}
 	else
 	{
 		Console.ForegroundColor = ConsoleColor.Red;
-		Console.WriteLine("Incorrect! \n");
+		Console.WriteLine("\nIncorrect! \n");
 	}
 	index1++;
 }
@@ -58,8 +56,7 @@ Console.WriteLine("Level 2: Input the number corresponding to the correct answer
 Console.WriteLine("-------");
 Console.ForegroundColor = ConsoleColor.White;
 
-string userAnswer;
-int fixedAnswer;
+int answer2;
 int score2 = 0; // score for just level 2
 
 // 10 questions
@@ -105,45 +102,31 @@ void Run(int index, int x, int y, int realAnswer) // one question - index is the
 		Console.WriteLine("3 - " + english[index]);
 	}
 
-	fixedAnswer = CheckNull(); // checks if answer is null
-	Console.WriteLine(""); // gap to look good
 
-	if ((fixedAnswer > 0) && (fixedAnswer < 4)) // checks if inputted number is valid
+	while (!int.TryParse(Console.ReadLine(), out answer2)) // checks if answer is valid - if answer isnt an integer, user must input another answer
 	{
-		if (fixedAnswer == realAnswer) // checks if inputted answer is correct
+		Console.Write("\nPlease enter a valid number: ");
+	}
+
+	if ((answer2 > 0) && (answer2 < 4)) // checks if inputted number is valid
+	{
+		if (answer2 == realAnswer) // checks if inputted answer is correct
 		{
 			Console.ForegroundColor = ConsoleColor.Green;
-			Console.WriteLine("Correct! \n");
+			Console.WriteLine("\nCorrect! \n");
 			score2++;
 			score++;
 		}
 		else
 		{
 			Console.ForegroundColor = ConsoleColor.Red;
-			Console.WriteLine("Incorrect. \n");
+			Console.WriteLine("\nIncorrect. \n");
 		}
 	}
 	else
 	{
 		Console.ForegroundColor = ConsoleColor.Red;
-		Console.WriteLine("Invalid Input. \n");
+		Console.WriteLine("\nInvalid Input. \n");
 	}
 	index++;
-}
-
-int CheckNull() // method to fix an error involving null ints
-{
-	while (true)
-	{
-		userAnswer = Console.ReadLine(); // reads the answer (userAnswer is currently a string, so it can be null)
-		if (userAnswer.Length == 0) // if the answer is null, user can try again (loop restarts)
-		{
-			Console.WriteLine("Invalid Input. Try again. \n");
-		}
-		else
-		{
-			break; // if answer isn't null, leaves the while loop
-		}
-	}
-	return Int32.Parse(userAnswer); // userAnswer is converted to an int and returned
 }
