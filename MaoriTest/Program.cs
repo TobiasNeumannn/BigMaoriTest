@@ -41,7 +41,7 @@ foreach (string word in maoriWords)
 	else
 	{
 		Console.ForegroundColor = ConsoleColor.Red;
-		Console.WriteLine("\nIncorrect! \n");
+		Console.WriteLine("\nIncorrect! The correct answer was " + maoriWords[index1] + ".\n");
 	}
 	index1++;
 }
@@ -103,13 +103,12 @@ void Run(int index, int x, int y, int realAnswer) // one question - index is the
 	}
 
 
-	while (!int.TryParse(Console.ReadLine(), out answer2)) // checks if answer is valid - if answer isnt an integer, user must input another answer
+	while (!int.TryParse(Console.ReadLine(), out answer2) || answer2 < 1 || answer2 > 3) // checks if answer is valid - if answer isnt an integer, user must input another answer
 	{
+		Console.ForegroundColor = ConsoleColor.Red;
 		Console.Write("\nPlease enter a valid number: ");
 	}
 
-	if ((answer2 > 0) && (answer2 < 4)) // checks if inputted number is valid
-	{
 		if (answer2 == realAnswer) // checks if inputted answer is correct
 		{
 			Console.ForegroundColor = ConsoleColor.Green;
@@ -120,13 +119,8 @@ void Run(int index, int x, int y, int realAnswer) // one question - index is the
 		else
 		{
 			Console.ForegroundColor = ConsoleColor.Red;
-			Console.WriteLine("\nIncorrect. \n");
+			Console.WriteLine("\nIncorrect. The correct answer was " + realAnswer +  ".\n");
 		}
-	}
-	else
-	{
-		Console.ForegroundColor = ConsoleColor.Red;
-		Console.WriteLine("\nInvalid Input. \n");
-	}
 	index++;
 }
+
