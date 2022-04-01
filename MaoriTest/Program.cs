@@ -1,25 +1,14 @@
-﻿/*
-This program is a Maori Vocabulary Test in two stages.
-The maoriWords array contains 10 Maori words.
-The english array contains 10 English words, that correspond to the maori word in the same place in the other array.
-Level 1 of the test in contained in a foreach loop that repeats for every word in the maoriWords array (10 times).
-Inside the loop, the code will prompt the user to enter the Maori word for the first English word in the english array.
-The word in the english array is represented by index1, an integer that starts as 0, and increases by one at the end of the loop.
+﻿Console.ForegroundColor = ConsoleColor.Blue;
+Console.WriteLine("Welcome to the Grand C# Maori Test!!! Created by Tobias Neumann. \n");
+Console.WriteLine("Level 1");
+Console.WriteLine("-------");
 
-
-*/
-
-	Console.ForegroundColor = ConsoleColor.Blue;
-	Console.WriteLine("Welcome to the Grand C# Maori Test!!! Created by Tobias Neumann. \n");
-	Console.WriteLine("Level 1");
-	Console.WriteLine("-------");
-
-	int score = 0; // num of questions answered correctly
-	int index1 = 0; // place of maori/english word in the array
+int score = 0; // num of questions answered correctly
+int index1 = 0; // place of maori/english word in the array
 
 // array of maori words and english meanings. every maori word has the same index/place of its english meaning
 string[] maoriWords = { "iwi", "kai", "haere mai", "wahine", "e tu", "e noho", "whanau", "kia ora", "turituri", "morena" };
-	string[] english = { "tribe", "food", "come here", "woman", "stand up", "sit down", "family", "hello", "shut up", "good morning" };
+string[] english = { "tribe", "food", "come here", "woman", "stand up", "sit down", "family", "hello", "shut up", "good morning" };
 
 // actual quiz (level 1), user types answers
 foreach (string word in maoriWords)
@@ -109,18 +98,18 @@ void Run(int index, int x, int y, int realAnswer) // one question - index is the
 		Console.Write("\nPlease enter a valid number: ");
 	}
 
-		if (answer2 == realAnswer) // checks if inputted answer is correct
-		{
-			Console.ForegroundColor = ConsoleColor.Green;
-			Console.WriteLine("\nCorrect! \n");
-			score2++;
-			score++;
-		}
-		else
-		{
-			Console.ForegroundColor = ConsoleColor.Red;
-			Console.WriteLine("\nIncorrect. The correct answer was " + realAnswer +  ".\n");
-		}
+	if (answer2 == realAnswer) // checks if inputted answer is correct
+	{
+		Console.ForegroundColor = ConsoleColor.Green;
+		Console.WriteLine("\nCorrect! \n");
+		score2++;
+		score++;
+	}
+	else
+	{
+		Console.ForegroundColor = ConsoleColor.Red;
+		Console.WriteLine("\nIncorrect. The correct answer was " + realAnswer +  ".\n");
+	}
 	index++;
 }
 
