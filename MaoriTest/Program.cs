@@ -16,11 +16,25 @@ foreach word in maoriWords
 	increase index by 1
 
 Level 2 -
+List of Maori words only for Level 2: maoriWords2 array (10 values)
+List of English words only for Level 2: english2 array (10 values)
 Run(index, random num1, random num2, answer position) ten times
 inside Run() method -
-	Output("Input place of maoriWords[index]")
-	if 
-
+	Output("Input place of meaning of maoriWords2[index]")
+	if place of real answer is 1
+		Output("1 - answer")
+		Output("2 - random english word")
+		Output("3 - another random english word')
+	same for if real answer is 2 and 3
+	user inputs answer
+	while the inputted answer isnt an integer OR the inputted answer is invalid (< 0 or > 3)
+		Output("Invalid input. Try again!")
+		user inputs answer
+	if the inputted answer is equal to the real answer
+		Output("Correct!")
+		score2 increases by 1 (score only for level 2)
+		score increases by 1 (total score)
+	index increases by 1
 */
 
 Console.ForegroundColor = ConsoleColor.Blue;
@@ -65,6 +79,10 @@ Console.Write("Congratulations! You finished level 1! your score was " + score +
 
 // LEVEL 2: multichoice
 
+// array for Level 2 words
+string[] maoriWords2 = {"kaumatua", "kauri", "koha", "aroha", "awa", "haka", "hui", "karakia", "mahi", "mana" };
+string[] english2 = {"elder", "large native tree", "gift", "love", "river", "maori dance", "gathering/meeting", "prayer", "work", "prestige/reputation" };
+
 Console.ForegroundColor = ConsoleColor.Blue;
 Console.WriteLine("Level 2: Input the number corresponding to the correct answer");
 Console.WriteLine("-------");
@@ -77,7 +95,7 @@ int score2 = 0; // score for just level 2
 Run(0, 9, 8, 1);
 Run(1, 7, 6, 3);
 Run(2, 4, 5, 3);
-Run(3, 0, 2, 2);
+Run(3, 0, 9, 2);
 Run(4, 8, 5, 3);
 Run(5, 7, 0, 1);
 Run(6, 4, 1, 2);
@@ -94,26 +112,26 @@ void Run(int index, int x, int y, int realAnswer) // one question - index is the
 
 	Console.ForegroundColor = ConsoleColor.White;
 	Console.Write(index + 1 + " - What is the meaning of: ");
-	Console.WriteLine(maoriWords[index]); // fetches the maori word from the array, corresponding to the current index
+	Console.WriteLine(maoriWords2[index]); // fetches the maori word from the array, corresponding to the current index
 	Console.WriteLine("");
 
 	if (realAnswer == 1)
     {
-		Console.WriteLine("1 - " + english[index]);
-		Console.WriteLine("2 - " + english[x]);
-		Console.WriteLine("3 - " + english[y]);
+		Console.WriteLine("1 - " + english2[index]);
+		Console.WriteLine("2 - " + english2[x]);
+		Console.WriteLine("3 - " + english2[y]);
 	}
 	if (realAnswer == 2)
     {
-		Console.WriteLine("1 - " + english[x]);
-		Console.WriteLine("2 - " + english[index]);
-		Console.WriteLine("3 - " + english[y]);
+		Console.WriteLine("1 - " + english2[x]);
+		Console.WriteLine("2 - " + english2[index]);
+		Console.WriteLine("3 - " + english2[y]);
 	}
 	if (realAnswer == 3)
     {
-		Console.WriteLine("1 - " + english[y]);
-		Console.WriteLine("2 - " + english[x]);
-		Console.WriteLine("3 - " + english[index]);
+		Console.WriteLine("1 - " + english2[y]);
+		Console.WriteLine("2 - " + english2[x]);
+		Console.WriteLine("3 - " + english2[index]);
 	}
 
 
