@@ -1,4 +1,29 @@
-﻿Console.ForegroundColor = ConsoleColor.Blue;
+﻿/*
+This program is a Maori test in 2 stages: Level 1, where the user writes a Maori word corresponding to a provided English word,
+and Level 2, where the user picks one of three English words corresponding to a provided Maori word.
+List of Maori words: maoriWords array (10 values)
+List of English words: english array (10 values)
+
+Level 1 -
+foreach word in maoriWords
+	Output("Input english[index1]")
+	Input answer
+	if answer lowercase is equal to the corresponding Maori word,
+		Output("Correct!")
+		increase score by 1
+	else
+		Output("Incorrect!")
+	increase index by 1
+
+Level 2 -
+Run(index, random num1, random num2, answer position) ten times
+inside Run() method -
+	Output("Input place of maoriWords[index]")
+	if 
+
+*/
+
+Console.ForegroundColor = ConsoleColor.Blue;
 Console.WriteLine("Welcome to the Grand C# Maori Test!!! Created by Tobias Neumann. \n");
 Console.WriteLine("Level 1");
 Console.WriteLine("-------");
