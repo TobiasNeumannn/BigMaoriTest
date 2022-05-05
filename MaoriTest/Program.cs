@@ -32,7 +32,6 @@ inside Run() method -
 		user inputs answer
 	if the inputted answer is equal to the real answer
 		Output("Correct!")
-		score2 increases by 1 (score only for level 2)
 		score increases by 1 (total score)
 	index increases by 1
 */
@@ -46,7 +45,6 @@ string[] maoriWords2 = { "kaumatua", "kauri", "koha", "aroha", "awa", "haka", "h
 string[] english2 = { "elder", "large native tree", "gift", "love", "river", "maori dance", "gathering/meeting", "prayer", "work", "prestige/reputation" };
 
 int answer2;
-int score2 = 0; // score for just level 2
 
 int score = 0; // num of questions answered correctly in total quiz
 int index1 = 0; // place of maori/english word in the array
@@ -56,8 +54,8 @@ Console.WriteLine("Welcome to the Grand C# Maori Test!!! Created by Tobias Neuma
 
 while (true)
 {
-	Console.WriteLine("Would you like to do Level 1 (translating English to Maori) or Level 2 (translating Maori to English?) or quit?");
-	Console.WriteLine("(Please enter '1' for Level 1 or '2' for Level 2 or any other number to quit.)");
+	Console.WriteLine("Would you like to do Level 1 (easy), Level 2 (normal), Level 3 (hard), or quit?");
+	Console.WriteLine("(Please enter 1, 2, 3, or any other number to quit.)");
 
 	int level;
 	while (!int.TryParse(Console.ReadLine(), out level) || level < 1 || level > 3) // checks if answer is valid - if answer isnt an integer, user must input another answer
@@ -69,8 +67,6 @@ while (true)
 
 	if (level == 1)
 	{
-		score = 0; // resets score
-
 		Console.WriteLine("Level 1");
 		Console.WriteLine("-------");
 
@@ -101,12 +97,13 @@ while (true)
 
 		Console.ForegroundColor = ConsoleColor.Green;
 		Console.Write("Congratulations! You finished level 1! your score was " + score + "/10. \n \n");
+
+		score = 0; // resets score
+		index1 = 0; // resets index
 	}
 	else if (level == 2)
 	{
 		// LEVEL 2: multichoice
-
-		score2 = 0; // resets score2
 
 		Console.ForegroundColor = ConsoleColor.Green;
 		Console.WriteLine("Level 2: Input the number corresponding to the correct answer");
@@ -126,8 +123,38 @@ while (true)
 		Run(9, 7, 5, 3);
 
 		Console.ForegroundColor = ConsoleColor.Green;
-		Console.Write("Congratulations! You finished level 2! your score for level 2 was " + score2 + "/10 and your total score is " + score + "/20. \n");
+		Console.Write("Congratulations! You finished level 2! your score for level 2 was " + score + "/10. \n");
 		Console.ForegroundColor = ConsoleColor.White;
+
+		score = 0;
+	}
+	else if (level == 3)
+    {
+		// LEVEL 3: finish the sentence
+
+		Console.ForegroundColor = ConsoleColor.Green;
+		Console.WriteLine("Level 3: Finish the sentence by Input the number corresponding to the correct answer");
+		Console.WriteLine("-------");
+		Console.ForegroundColor = ConsoleColor.White;
+
+		// 10 questions
+		Sentence(0, 9, 8, 1, "A large proportion of the Māori population are from the Ngāi Tahu ___.");
+		Sentence(1, 7, 6, 3, "I could really go for some ___ right now!");
+		Sentence(2, 4, 5, 3, "'___' She said as they approached the marae.");
+		Sentence(3, 0, 9, 2, "He held a conversation with the tall ___.");
+		Sentence(4, 8, 5, 3, "'___!' He commanded, and they stood.");
+		Sentence(5, 7, 0, 1, "They said '___' to the standing crowd.");
+		Sentence(6, 4, 1, 2, "I'm exited to spend these holidays with my ___.");
+		Sentence(7, 8, 9, 2, "'___!' She said, greeting him.");
+		Sentence(8, 5, 3, 1, "The teacher told the noisy class to ___.");
+		Sentence(9, 7, 5, 3, "It was a bright and sunny ___.");
+
+		Console.ForegroundColor = ConsoleColor.Green;
+		Console.Write("Congratulations! You finished level 3! your score for level 2 was " + score + "/10. \n");
+		Console.ForegroundColor = ConsoleColor.White;
+
+		score = 0;
+		index1 = 0;
 	}
 	else
 	{
@@ -173,13 +200,58 @@ void Run(int index, int x, int y, int realAnswer) // one question - index is the
 	{
 		Console.ForegroundColor = ConsoleColor.Green;
 		Console.WriteLine("\nCorrect! \n");
-		score2++;
 		score++;
 	}
 	else
 	{
 		Console.ForegroundColor = ConsoleColor.Red;
 		Console.WriteLine("\nIncorrect. The correct answer was " + realAnswer +  ".\n");
+	}
+	index++;
+}
+
+void Sentence(int index, int x, int y, int realAnswer, string sentence)
+{
+	Console.ForegroundColor = ConsoleColor.White;
+	Console.Write(index + 1 + " - Finish the sentence: ");
+	Console.WriteLine(sentence);
+	Console.WriteLine("");
+
+	if (realAnswer == 1)
+	{
+		Console.WriteLine("1 - " + maoriWords[index]);
+		Console.WriteLine("2 - " + maoriWords[x]);
+		Console.WriteLine("3 - " + maoriWords[y]);
+	}
+	if (realAnswer == 2)
+	{
+		Console.WriteLine("1 - " + maoriWords[x]);
+		Console.WriteLine("2 - " + maoriWords[index]);
+		Console.WriteLine("3 - " + maoriWords[y]);
+	}
+	if (realAnswer == 3)
+	{
+		Console.WriteLine("1 - " + maoriWords[y]);
+		Console.WriteLine("2 - " + maoriWords[x]);
+		Console.WriteLine("3 - " + maoriWords[index]);
+	}
+
+	while (!int.TryParse(Console.ReadLine(), out answer2) || answer2 < 1 || answer2 > 3) // checks if answer is valid - if answer isnt an integer, user must input another answer
+	{
+		Console.ForegroundColor = ConsoleColor.Red;
+		Console.Write("\nPlease enter a valid number: ");
+	}
+
+	if (answer2 == realAnswer) // checks if inputted answer is correct
+	{
+		Console.ForegroundColor = ConsoleColor.Green;
+		Console.WriteLine("\nCorrect! \n");
+		score++;
+	}
+	else
+	{
+		Console.ForegroundColor = ConsoleColor.Red;
+		Console.WriteLine("\nIncorrect. The correct answer was " + realAnswer + ".\n");
 	}
 	index++;
 }
