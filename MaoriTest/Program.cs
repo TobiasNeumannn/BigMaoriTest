@@ -55,7 +55,7 @@ Console.WriteLine("Welcome to the Grand C# Maori Test!!! Created by Tobias Neuma
 while (true)
 {
 	Console.WriteLine("Would you like to do Level 1 (easy), Level 2 (normal), Level 3 (hard), or quit?");
-	Console.WriteLine("(Please enter 1, 2, 3, or any other number to quit.)");
+	Console.WriteLine("(Please enter 1, 2, 3, or any other number to quit.) \n ");
 
 	int level;
 	while (!int.TryParse(Console.ReadLine(), out level) || level < 1 || level > 3) // checks if answer is valid - if answer isnt an integer, user must input another answer
@@ -64,6 +64,7 @@ while (true)
 		Console.Write("\nPlease enter a valid answer: ");
 	}
 	Console.ForegroundColor = ConsoleColor.White;
+	Console.WriteLine("");
 
 	if (level == 1)
 	{
@@ -96,7 +97,7 @@ while (true)
 		}
 
 		Console.ForegroundColor = ConsoleColor.Green;
-		Console.Write("Congratulations! You finished level 1! your score was " + score + "/10. \n \n");
+		Console.WriteLine("Congratulations! You finished level 1! your score was " + score + "/10. \n \n");
 
 		score = 0; // resets score
 		index1 = 0; // resets index
@@ -123,7 +124,7 @@ while (true)
 		Run(9, 7, 5, 3);
 
 		Console.ForegroundColor = ConsoleColor.Green;
-		Console.Write("Congratulations! You finished level 2! your score for level 2 was " + score + "/10. \n");
+		Console.WriteLine("Congratulations! You finished level 2! your score for level 2 was " + score + "/10. \n");
 		Console.ForegroundColor = ConsoleColor.White;
 
 		score = 0;
@@ -140,17 +141,17 @@ while (true)
 		// 10 questions
 		Sentence(0, 9, 8, 1, "A large proportion of the Māori population are from the Ngāi Tahu ___.");
 		Sentence(1, 7, 6, 3, "I could really go for some ___ right now!");
-		Sentence(2, 4, 5, 3, "'___' She said as they approached the marae.");
-		Sentence(3, 0, 9, 2, "He held a conversation with the tall ___.");
+		Sentence(2, 0, 6, 3, "'___' She said as they approached the marae.");
+		Sentence(3, 1, 9, 2, "He held a conversation with the tall ___.");
 		Sentence(4, 8, 5, 3, "'___!' He commanded, and they stood.");
-		Sentence(5, 7, 0, 1, "They said '___' to the standing crowd.");
+		Sentence(5, 7, 2, 1, "They said '___' to the standing crowd.");
 		Sentence(6, 4, 1, 2, "I'm exited to spend these holidays with my ___.");
 		Sentence(7, 8, 9, 2, "'___!' She said, greeting him.");
 		Sentence(8, 5, 3, 1, "The teacher told the noisy class to ___.");
-		Sentence(9, 7, 5, 3, "It was a bright and sunny ___.");
+		Sentence(9, 7, 5, 3, "'___! The sun is so bright today!.'");
 
 		Console.ForegroundColor = ConsoleColor.Green;
-		Console.Write("Congratulations! You finished level 3! your score for level 2 was " + score + "/10. \n");
+		Console.WriteLine("Congratulations! You finished level 3! your score for level 2 was " + score + "/10. \n");
 		Console.ForegroundColor = ConsoleColor.White;
 
 		score = 0;
