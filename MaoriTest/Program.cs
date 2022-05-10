@@ -1,23 +1,29 @@
 ﻿/*
-This program is a Maori test in 2 stages: Level 1, where the user writes a Maori word corresponding to a provided English word,
-and Level 2, where the user picks one of three English words corresponding to a provided Maori word.
+This program is a Maori test with 3 different levels/difficulties: Level 1, where the user writes a Maori word corresponding to a provided English word, 
+Level 2, where the user picks one of three English words corresponding to a provided Maori word,
+and Level 3, where the user picks of of three Maori words to fit inside an English sentence.
+
 List of Maori words: maoriWords array (10 values)
 List of English words: english array (10 values)
+
+List of Maori words only for Level 2: maoriWords2 array (10 values)
+List of English words only for Level 2: english2 array (10 values)
+
+The levels exist inside a while loop that keeps running until the user chooses to exit the program. At the beginning of the loop, the user may pick a level to play or quit.
+The levels exist in an if statement which will begin a certain level based on what number the user enters (1 for Level 1, etc.). The program will close if the user enters any number other than 1, 2, or 3.
 
 Level 1 -
 foreach word in maoriWords
 	Output("Input english[index1]")
-	Input answer
-	if answer lowercase is equal to the corresponding Maori word,
+	user inputs answer
+	if answer converted to lowercase is equal to the corresponding Maori word,
 		Output("Correct!")
 		increase score by 1
 	else
-		Output("Incorrect!")
+		Output("Incorrect! The correct answer was [correct answer].")
 	increase index by 1
 
 Level 2 -
-List of Maori words only for Level 2: maoriWords2 array (10 values)
-List of English words only for Level 2: english2 array (10 values)
 Run(index, random num1, random num2, answer position) ten times
 inside Run() method -
 	Output("Input place of meaning of maoriWords2[index]")
@@ -33,6 +39,29 @@ inside Run() method -
 	if the inputted answer is equal to the real answer
 		Output("Correct!")
 		score increases by 1 (total score)
+	else
+		Output("Incorrect. The correct answer was [correct answer]")
+	index increases by 1
+
+Level 3 - 
+Sentence(index, random num1, random num2, answer position, unfinished sentence) ten times
+inside Sentence() method -
+	Output("Finish the sentence: ")
+	Output sentence
+	if place of real answer is 1
+		Output("1 - answer")
+		Output("2 - random maori word")
+		Output("3 - another random maori word')
+	same for if real answer is 2 and 3
+	user inputs answer
+	while the inputted answer isnt an integer OR the inputted answer is invalid (< 0 or > 3)
+		Output("Invalid input. Try again!")
+		user inputs answer
+	if the inputted answer is equal to the real answer
+		Output("Correct!")
+		score increases by 1 (total score)
+	else
+		Output("Incorrect. The correct answer was [correct answer]")
 	index increases by 1
 */
 
@@ -58,7 +87,7 @@ while (true)
 	Console.WriteLine("(Please enter 1, 2, 3, or any other number to quit.) \n ");
 
 	int level;
-	while (!int.TryParse(Console.ReadLine(), out level) || level < 1 || level > 3) // checks if answer is valid - if answer isnt an integer, user must input another answer
+	while (!int.TryParse(Console.ReadLine(), out level)) // checks if answer is valid - if answer isnt an integer, user must input another answer
 	{
 		Console.ForegroundColor = ConsoleColor.Red;
 		Console.Write("\nPlease enter a valid answer: ");
@@ -134,7 +163,7 @@ while (true)
 		// LEVEL 3: finish the sentence
 
 		Console.ForegroundColor = ConsoleColor.Green;
-		Console.WriteLine("Level 3: Finish the sentence by Input the number corresponding to the correct answer");
+		Console.WriteLine("Level 3: Finish the sentence by inputting the number corresponding to the correct answer");
 		Console.WriteLine("-------");
 		Console.ForegroundColor = ConsoleColor.White;
 
