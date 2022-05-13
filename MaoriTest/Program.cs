@@ -177,7 +177,7 @@ while (true)
 		Sentence(6, 4, 1, 2, "I'm exited to spend these holidays with my ___.");
 		Sentence(7, 8, 9, 2, "'___!' She said, greeting him.");
 		Sentence(8, 5, 3, 1, "The teacher told the noisy class to ___.");
-		Sentence(9, 0, 5, 3, "'___! The sun is so bright today!.'");
+		Sentence(9, 1, 0, 3, "'___! The sun is so bright today!.'");
 
 		Console.ForegroundColor = ConsoleColor.Green;
 		Console.WriteLine("Congratulations! You finished level 3! your score for level 2 was " + score + "/10. \n");
