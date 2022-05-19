@@ -237,7 +237,6 @@ void Run(int index, int x, int y, int realAnswer) // one question - index is the
 		Console.ForegroundColor = ConsoleColor.Red;
 		Console.WriteLine("\nIncorrect. The correct answer was " + realAnswer +  ".\n");
 	}
-	index++;
 }
 
 void Sentence(int index, int x, int y, int realAnswer, string sentence)
