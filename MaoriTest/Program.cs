@@ -41,7 +41,6 @@ inside Run() method -
 		score increases by 1 (total score)
 	else
 		Output("Incorrect. The correct answer was [correct answer]")
-	index increases by 1
 
 Level 3 - 
 Sentence(index, random num1, random num2, answer position, unfinished sentence) ten times
@@ -62,7 +61,6 @@ inside Sentence() method -
 		score increases by 1 (total score)
 	else
 		Output("Incorrect. The correct answer was [correct answer]")
-	index increases by 1
 */
 
 // array of maori words and english meanings. every maori word has the same index/place of its english meaning
@@ -184,7 +182,6 @@ while (true)
 		Console.ForegroundColor = ConsoleColor.White;
 
 		score = 0;
-		index1 = 0;
 	}
 	else
 	{
@@ -282,6 +279,5 @@ void Sentence(int index, int x, int y, int realAnswer, string sentence)
 		Console.ForegroundColor = ConsoleColor.Red;
 		Console.WriteLine("\nIncorrect. The correct answer was " + realAnswer + ".\n");
 	}
-	index++;
 }
 
