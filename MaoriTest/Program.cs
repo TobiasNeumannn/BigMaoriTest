@@ -77,7 +77,7 @@ int score = 0; // num of questions answered correctly in total quiz
 int index1 = 0; // place of maori/english word in the array
 
 Console.ForegroundColor = ConsoleColor.Green;
-Console.WriteLine("Welcome to the Grand C# Maori Test!!! Created by Tobias Neumann. \n");
+Console.WriteLine("Welcome to the Grand C# Māori Test!!! Created by Tobias Neumann. \n");
 
 while (true)
 {
@@ -103,7 +103,7 @@ while (true)
 		{
 			// change text color of question to white
 			Console.ForegroundColor = ConsoleColor.White;
-			Console.Write(index1 + 1 + " - What is the maori word for: ");
+			Console.Write(index1 + 1 + " - What is the Māori word for: ");
 			Console.WriteLine(english[index1]); // fetches the english word from the array, corresponding to the current index
 			string answer = Console.ReadLine();
 
