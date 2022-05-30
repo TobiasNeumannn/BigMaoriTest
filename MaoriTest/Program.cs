@@ -73,7 +73,7 @@ string[] english2 = { "elder", "large native tree", "gift", "love", "river", "ma
 
 int answer2;
 
-int score = 0; // num of questions answered correctly in total quiz
+int score = 0; // num of questions answered correctly in certain level
 int index1 = 0; // place of maori/english word in the array
 
 Console.ForegroundColor = ConsoleColor.Green;
@@ -189,7 +189,7 @@ while (true)
 	}
 }
 
-void Run(int index, int x, int y, int realAnswer) // one question - index is the place of the word in the array, x and y are numbers chosen randomly, and realAnswer is the place of the real answer
+void Run(int index, int x, int y, int realAnswer) // index is the place of the word in the array, x and y are numbers chosen randomly, and realAnswer is the place of the real answer
 {
 
 	Console.ForegroundColor = ConsoleColor.White;
